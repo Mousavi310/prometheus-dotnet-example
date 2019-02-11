@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Prometheus;
+using Prometheus.HttpMetrics;
 
 namespace prometheus_dotnet_example
 {
@@ -43,6 +45,13 @@ namespace prometheus_dotnet_example
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            
+
+            app.UseMetricServer();
+            app.UseHttpMetrics();
+
+            
         }
     }
 }
